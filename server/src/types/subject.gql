@@ -1,0 +1,26 @@
+type Teacher {
+  id: Int!
+  name: String!
+}
+
+type Subject {
+  id: Int!
+  name: String!
+  teacher: Teacher!
+}
+
+type Response {
+  subjects: [Subject!]!
+  totalCount: Int!
+}
+
+type Query {
+  subjects(skip: Int, take: Int): Response
+  subject(id: Int!): Subject
+}
+
+type Mutation {
+  createSubject(name: String!, teacherId: Int!): Subject!
+  updateSubject(id: Int!, name: String, teacherId: Int): Subject!
+  deleteSubject(id: Int!): Subject!
+}

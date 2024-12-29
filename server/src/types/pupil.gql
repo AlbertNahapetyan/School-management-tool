@@ -1,0 +1,22 @@
+type Pupil {
+  id: Int!
+  name: String!
+  grade: String!
+  subject: Subject!
+}
+
+type PupilsResponse {
+  pupils: [Pupil!]!
+  totalCount: Int!
+}
+
+type Query {
+  pupils(skip: Int, take: Int): PupilsResponse
+  pupil(id: Int!): Pupil
+}
+
+type Mutation {
+  createPupil(name: String!, grade: String!, subjectId: Int!): Pupil!
+  updatePupil(id: Int!, name: String, grade: String, subjectId: Int): Pupil!
+  deletePupil(id: Int!): Pupil!
+}

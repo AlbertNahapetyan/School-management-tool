@@ -1,0 +1,21 @@
+type Teacher {
+  id: Int!
+  name: String!
+  subjects: [Subject!]
+}
+
+type TeachersResponse {
+  teachers: [Teacher!]!
+  totalCount: Int!
+}
+
+type Query {
+  teachers(skip: Int, take: Int): TeachersResponse
+  teacher(id: Int!): Teacher
+}
+
+type Mutation {
+  createTeacher(name: String!): Teacher!
+  updateTeacher(id: Int!, name: String!): Teacher!
+  deleteTeacher(id: Int!): Teacher!
+}
